@@ -7,9 +7,11 @@
   pointer-events: none;
 }
 @import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+
 .kanit {
   font-family: 'kanit', sans-serif;
 }
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
