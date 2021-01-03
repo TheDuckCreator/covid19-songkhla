@@ -1,3 +1,4 @@
 {
-  "port": 6000
+  "port": 6000,
+  "dbConnectionString": "mongodb://localhost:27017/tdc"
 }
