@@ -1,9 +1,43 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import firebase from '../Api/Firebase'
 import { useHistory } from 'react-router-dom'
 const AppNavBar = () => {
   const history = useHistory()
+  const [showUserInfo, setshowUserInfo] = useState(false)
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        setshowUserInfo(true)
+      } else {
+        setshowUserInfo(false)
+      }
+    })
+    return () => {}
+  }, [])
+
+  const userInfoMenu = () => (
+    <>
+      <Link className='navbar-item'> {firebase.auth().currentUser.email} </Link>
+      <button
+        className='button is-light'
+        onClick={() => {
+          firebase.auth().signOut()
+          history.push('/login')
+        }}
+      >
+        Logout
+      </button>
+    </>
+  )
+
+  const annonymousMenu = () => (
+    <>
+      <Link className='button is-light' to='/login'>
+        Login
+      </Link>
+    </>
+  )
   return (
     <div className='navbar' role='navigation' aria-label='main navigation'>
       <div className='navbar-brand'>
@@ -54,29 +88,7 @@ const AppNavBar = () => {
         <div className='navbar-end'>
           <div className='navbar-item'>
             <div className='buttons'>
-              {firebase.auth().currentUser ? (
-                <>
-                  <Link className='navbar-item'>
-                    {' '}
-                    {firebase.auth().currentUser.email}{' '}
-                  </Link>
-                  <button
-                    className='button is-light'
-                    onClick={() => {
-                      firebase.auth().signOut()
-                      history.push('/login')
-                    }}
-                  >
-                    Logout
-                  </button>
-                </>
-              ) : (
-                <>
-                  <Link className='button is-light' to='/login'>
-                    Login
-                  </Link>
-                </>
-              )}
+              {showUserInfo ? userInfoMenu() : annonymousMenu()}
             </div>
           </div>
         </div>

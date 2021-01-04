@@ -27,7 +27,7 @@ app.get('/', async (req, res) => {
 
 app.get('/latest/', async (req, res) => {
   let allCase = await CaseModel.find({})
-  let sortedCase = _.orderBy(allCase, ['date', 'desc'])
+  let sortedCase = _.take(_.orderBy(allCase, ['date', 'desc']), 1)
   res.send(sortedCase)
 })
 
