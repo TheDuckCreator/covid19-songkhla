@@ -22,12 +22,13 @@ app.post('/access/', async (req, res) => {
 
 app.get('/', async (req, res) => {
   let allCase = await CaseModel.find({})
-  res.send(allCase)
+  let sortedCase = _.sortBy(allCase, ['date', 'desc'])
+  res.send(sortedCase)
 })
 
 app.get('/latest/', async (req, res) => {
   let allCase = await CaseModel.find({})
-  let sortedCase = _.take(_.orderBy(allCase, ['date', 'desc']), 1)
+  let sortedCase = _.take(_.sortBy(allCase, ['date', 'desc']), 1)
   res.send(sortedCase)
 })
 

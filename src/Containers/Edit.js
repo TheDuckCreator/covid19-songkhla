@@ -51,7 +51,7 @@ export default function EditPage() {
             onClick={() => deleteReport(_data._id)}
           >
             ลบ
-          </button>{' '}
+          </button>
         </td>
       </tr>
     ))

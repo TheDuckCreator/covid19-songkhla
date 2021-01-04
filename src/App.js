@@ -33,7 +33,7 @@ function App() {
     <div>
       <Helmet>
         <meta charSet='utf-8' />
-        <title>The Duck Creator App </title>
+        <title>กราฟสถานการณ์การแพร่ระบาดของโรคโควิด 19 ในจังหวัดสงขลา </title>
       </Helmet>
       <Router>
         <Navbar />
