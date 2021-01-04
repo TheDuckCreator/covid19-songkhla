@@ -45,6 +45,14 @@ export default function EditPage() {
         <td>{_data.allNegative} </td>
         <td>{_data.waiting} </td>
         <td>{_data.riskGroup} </td>
+        <td>
+          <button
+            className='button is-danger kanit'
+            onClick={() => deleteReport(_data._id)}
+          >
+            ลบ
+          </button>{' '}
+        </td>
       </tr>
     ))
   }
@@ -55,6 +63,19 @@ export default function EditPage() {
         mutate(process.env.REACT_APP_API_URL + '/case/')
       }
     })
+  }
+
+  const deleteReport = (id) => {
+    let confirm = window.confirm('ยืนยันที่จะลบ')
+    if (confirm) {
+      axios
+        .delete(process.env.REACT_APP_API_URL + '/case/' + id)
+        .then((res) => {
+          if (res.status === 200) {
+            mutate(process.env.REACT_APP_API_URL + '/case/')
+          }
+        })
+    }
   }
 
   const errorComponent = () => (
@@ -200,6 +221,7 @@ export default function EditPage() {
               <th>ไม่พบเชื้อ </th>
               <th>รอผล </th>
               <th>จำนวนกลุ่มเสี่ยง </th>
+              <th>ดำเนินการ </th>
             </tr>
           </thead>
           <tbody>{allCaseRender()}</tbody>

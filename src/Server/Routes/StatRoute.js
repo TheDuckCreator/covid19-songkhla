@@ -88,4 +88,31 @@ app.put(
   }
 )
 
+app.delete(
+  '/:id',
+  async (req, res, next) => {
+    let jwtKey = _.last(_.split(req.headers.authorization, ' '))
+    try {
+      let decode = jwt.verify(jwtKey, secret)
+      if (decode) {
+        console.log('Authen Pass!')
+        next()
+      }
+    } catch (err) {
+      console.log('Invalid Token')
+      console.log(err)
+      res.sendStatus(403)
+    }
+  },
+  async (req, res) => {
+    let caseId = req.params.id
+    let deletedCase = await CaseModel.findByIdAndDelete(caseId)
+    if (deletedCase) {
+      res.send(200)
+    } else {
+      res.send(400)
+    }
+  }
+)
+
 export default app
