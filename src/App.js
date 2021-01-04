@@ -8,6 +8,7 @@ import Footer from './Components/Footer'
 import Home from './Containers/Home'
 import About from './Containers/About'
 import EditPage from './Containers/Edit'
+import Login from './Containers/Login'
 import axios from 'axios'
 function App() {
   useEffect(() => {
@@ -43,6 +44,9 @@ function App() {
           </Route>
           <Route path='/edit'>
             <EditPage />
+          </Route>
+          <Route path='/login'>
+            <Login />
           </Route>
           <Route path='/'>
             <Home />

@@ -1,5 +1,9 @@
+import React from 'react'
 import { Link } from 'react-router-dom'
+import firebase from '../Api/Firebase'
+import { useHistory } from 'react-router-dom'
 const AppNavBar = () => {
+  const history = useHistory()
   return (
     <div className='navbar' role='navigation' aria-label='main navigation'>
       <div className='navbar-brand'>
@@ -24,10 +28,15 @@ const AppNavBar = () => {
           <Link className='navbar-item' to='/'>
             Home
           </Link>
-          {/* 
-          <Link className='navbar-item' to='/about'>
-            About
-          </Link> */}
+          {firebase.auth().currentUser ? (
+            <>
+              <Link className='navbar-item' to='/edit'>
+                แก้ไขข้อมูล
+              </Link>
+            </>
+          ) : (
+            <></>
+          )}
 
           {/* <div className='navbar-item has-dropdown is-hoverable'>
             <Link className='navbar-link'>Menu</Link>
@@ -45,12 +54,29 @@ const AppNavBar = () => {
         <div className='navbar-end'>
           <div className='navbar-item'>
             <div className='buttons'>
-              {/* <Link className='button is-primary'>
-                <strong>Sign up</strong>
-              </Link> */}
-              <Link className='button is-light' to='/edit'>
-                Log in
-              </Link>
+              {firebase.auth().currentUser ? (
+                <>
+                  <Link className='navbar-item'>
+                    {' '}
+                    {firebase.auth().currentUser.email}{' '}
+                  </Link>
+                  <button
+                    className='button is-light'
+                    onClick={() => {
+                      firebase.auth().signOut()
+                      history.push('/login')
+                    }}
+                  >
+                    Logout
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Link className='button is-light' to='/login'>
+                    Login
+                  </Link>
+                </>
+              )}
             </div>
           </div>
         </div>
