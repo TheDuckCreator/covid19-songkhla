@@ -4,6 +4,7 @@ import mongoose from 'mongoose'
 import cors from 'cors'
 import bodyParser from 'body-parser'
 import MainRoute from './mainroute'
+import path from 'path'
 
 const app = Express()
 
@@ -42,9 +43,11 @@ db.on('open', () => {
 
 // Frontend Routing
 //TODO: Change it to render html static element
-app.get('/', (req, res) => {
-  res.send('The Duck Creator Express Server')
-})
+const wwwPath = path.join(__dirname, 'www')
+app.use('/', Express.static(wwwPath))
+app.use('/edit', Express.static(wwwPath))
+app.use('/login', Express.static(wwwPath))
+app.use('/about', Express.static(wwwPath))
 
 // Main Routing (it will behind the API)
 app.use('/api', MainRoute)
