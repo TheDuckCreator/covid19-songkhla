@@ -4,7 +4,7 @@ const AppNavBar = () => {
     <div className='navbar' role='navigation' aria-label='main navigation'>
       <div className='navbar-brand'>
         <Link className='navbar-item' to='/'>
-          <h1 className='title is-3 kanit'> TDC</h1>
+          <h1 className='title is-5 kanit'> COVID-19 in Songkhla</h1>
         </Link>
 
         <button
@@ -24,12 +24,12 @@ const AppNavBar = () => {
           <Link className='navbar-item' to='/'>
             Home
           </Link>
-
+          {/* 
           <Link className='navbar-item' to='/about'>
             About
-          </Link>
+          </Link> */}
 
-          <div className='navbar-item has-dropdown is-hoverable'>
+          {/* <div className='navbar-item has-dropdown is-hoverable'>
             <Link className='navbar-link'>Menu</Link>
 
             <div className='navbar-dropdown'>
@@ -39,16 +39,18 @@ const AppNavBar = () => {
               <hr className='navbar-divider' />
               <Link className='navbar-item'>Report an issue</Link>
             </div>
-          </div>
+          </div> */}
         </div>
 
         <div className='navbar-end'>
           <div className='navbar-item'>
             <div className='buttons'>
-              <Link className='button is-primary'>
+              {/* <Link className='button is-primary'>
                 <strong>Sign up</strong>
+              </Link> */}
+              <Link className='button is-light' to='/edit'>
+                Log in
               </Link>
-              <Link className='button is-light'>Log in</Link>
             </div>
           </div>
         </div>

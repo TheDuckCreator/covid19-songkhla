@@ -38,7 +38,7 @@ While you want to start project run this command
 
         npm run dev
 
-Project will run on Port **3000** and backend will run on Port **6000**
+Project will run on Port **3000** and backend will run on Port **5000**
 
 it will run concurently backend and fontends. Edit our config file at `src\config.json` and continues editing `src/App.js` for frontend and `src/Server/index.js` for backend
 

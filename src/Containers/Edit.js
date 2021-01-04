@@ -1,9 +1,8 @@
 import React from 'react'
-import TDCLogo from '../Assets/TDC Logo black.png'
-export default function Home({ props }) {
+export default function EditPage({ props }) {
   return (
     <div className='container'>
-      <div className='App-header'>
+      <div className='App'>
         <div className='content '>
           <h3 className='title is-3 kanit'>
             สถานการณ์การระบาดของโรคโควิด 19 ระรอกใหม่ จังหวัดสงขลา

@@ -8,6 +8,20 @@ import MainRoute from './mainroute'
 const app = Express()
 
 // Using Middleware
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'http://localhost:3000')
+  res.header('Access-Control-Allow-Origin', 'http://localhost')
+  res.header(
+    'Access-Control-Allow-Methods',
+    'POST, GET, PUT, PATCH, DELETE, OPTIONS'
+  )
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Content-Type, Option, Authorization'
+  )
+  next()
+})
+
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
