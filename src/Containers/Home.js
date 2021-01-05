@@ -110,9 +110,9 @@ export default function Home({ props }) {
           <h5 className='subtitle is-5 kanit acenter'>
             ผู้ป่วยใหม่ในแต่ละวันในช่วงการระบาดรอบใหม่
           </h5>
-          <div className='is-flex is-justify-content-center'>
+          <div className=' is-flex is-justify-content-center'>
             <Chart
-              width='700'
+              width='500'
               type='area'
               series={newCaseSeries}
               options={options}
@@ -120,24 +120,24 @@ export default function Home({ props }) {
           </div>
 
           <br />
-          <h5 className='subtitle is-5 kanit acenter'>
+          <h5 className='subtitle is-5 kanit-light acenter'>
             ผู้ป่วยสะสมทั้งในการระบาดรอบใหม่ และ ทั้งหมด
           </h5>
-          <div className='is-flex is-justify-content-center'>
+          <div className=' is-flex is-justify-content-center'>
             <Chart
-              width='700'
+              width='500'
               type='area'
               series={allCaseSeries}
               options={options}
             />
           </div>
 
-          <h5 className='subtitle is-5 kanit acenter'>
+          <h5 className='subtitle is-5 kanit-light acenter'>
             จำนวนการตรวจหาเชื้อในแต่ละวัน
           </h5>
-          <div className='is-flex is-justify-content-center'>
+          <div className=' is-flex is-justify-content-center'>
             <Chart
-              width='700'
+              width='500'
               type='line'
               series={newFindingSeries}
               options={findingCaseOptions}
@@ -145,30 +145,29 @@ export default function Home({ props }) {
           </div>
 
           <br />
-          <div className='columns'>
-            <div className='column'>
-              <h5 className='subtitle is-5 kanit acenter'>
-                จำนวนคนในกลุ่มเสี่ยง
-              </h5>
-              <Chart
-                width='700'
-                type='bar'
-                series={riskGroupsSeries}
-                options={options}
-              />
-            </div>
 
-            <div className='column'>
-              <h5 className='subtitle is-5 kanit acenter'>
-                จำนวนการรอผลการตรวจ
-              </h5>
-              <Chart
-                width='700'
-                type='bar'
-                series={waitingResultSeries}
-                options={options}
-              />
-            </div>
+          <h5 className='subtitle is-5 kanit-light acenter'>
+            จำนวนคนในกลุ่มเสี่ยง
+          </h5>
+          <div className=' is-flex is-justify-content-center'>
+            <Chart
+              width='500'
+              type='line'
+              series={riskGroupsSeries}
+              options={options}
+            />
+          </div>
+
+          <h5 className='subtitle is-5 kanit-light acenter'>
+            จำนวนการรอผลการตรวจ
+          </h5>
+          <div className=' is-flex is-justify-content-center'>
+            <Chart
+              width='500'
+              type='bar'
+              series={waitingResultSeries}
+              options={options}
+            />
           </div>
           <p className=' has-text-centered'>
             {' '}
@@ -189,15 +188,15 @@ export default function Home({ props }) {
   }
   return (
     <div className='container'>
-      <div className='App-header'>
-        <div className='content '>
-          <h3 className='title is-3 kanit'>
-            สถานการณ์การระบาดของโรคโควิด 19 ระรอกใหม่ จังหวัดสงขลา
-          </h3>
+      <div className=' '>
+        <h3 className='title is-4 kanit acenter'>
+          สถานการณ์การระบาดของโรคโควิด 19
           <br />
+          ระลอกใหม่ จังหวัดสงขลา
+        </h3>
+        <br />
 
-          {allCaseRender()}
-        </div>
+        {allCaseRender()}
       </div>
     </div>
   )

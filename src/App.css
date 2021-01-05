@@ -7,10 +7,14 @@
   height: 40vmin;
   pointer-events: none;
 }
-@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400&display=swap');
 
 .kanit {
   font-family: 'kanit', sans-serif;
+}
+.kanit-light {
+  font-family: 'kanit', sans-serif;
+  font-weight: 300;
 }
 
 @media (prefers-reduced-motion: no-preference) {
